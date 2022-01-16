@@ -4,16 +4,17 @@ import matplotlib.pyplot as plt
 class Regression:
     def __init__(self):
         self._iterations = 2000
-        self._learning_rate = 0.01
+        self._learning_rate = 0.001
         self.theta = None
         self.cost = []
         
     def fit(self,X_train,y_train):
+        
         m,n = X_train.shape
         self.theta = np.random.randn(n)
         X_with_bias = np.c_[np.ones(m),X_train]
         self.theta = np.insert(self.theta,0,0)
-        
+        self.theta = np.reshape(self.theta,(self.theta.shape[0],1))
         for i in range(self._iterations):
             h = np.dot(X_with_bias,self.theta)
             error = h - y_train            
@@ -21,8 +22,9 @@ class Regression:
             grad = (2/m)*np.dot(X_with_bias.T,error)
             self.theta = self.theta - self._learning_rate*grad
             self.cost.append(J)
+        
         self.plot()
-
+        
     def plot(self):
         plt.plot(self.cost)
         plt.xlabel('Iterations')
