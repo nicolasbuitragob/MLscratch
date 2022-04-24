@@ -7,6 +7,5 @@ I am going to build the most common machine learning algorithms using only numpy
 **Why?** Well, first for fun. And besides I think that by doing this I can get a practical understaing of basic machine learning concepts that could be useful in more complex problems in the future
 
 ## Which algorithms:
-1. Linear regression
-2. Logistic regression
-3. Artificial Neural Network
+1. Logistic regression
+2. Artificial Neural Network
